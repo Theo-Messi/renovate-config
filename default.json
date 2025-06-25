@@ -1,18 +1,20 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended"],
-  "labels": ["dependencies"],
+  "extends": [
+    "config:recommended",
+    "group:all",
+    ":npm",
+    ":semanticCommits",
+    ":enableVulnerabilityAlertsWithLabel(security)"
+  ],
+  "assignees": ["Theo-Messi"],
+  "labels": ["dependencies", "renovate"],
   "packageRules": [
-    {
-      "groupName": "deps",
-      "matchPackageNames": ["/.*/"]
-    },
     {
       "bumpVersion": "prerelease",
       "matchPackageNames": ["vitepress"]
     }
   ],
   "rangeStrategy": "bump",
-  "semanticCommits": "enabled",
   "timezone": "Asia/Shanghai"
 }
